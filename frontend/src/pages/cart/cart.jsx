@@ -4,7 +4,7 @@ import { StoreContext } from '../../context/StoreContext'
 import {Link} from "react-router-dom"
 
 const Cart = () => {
-  const {cartItems,food_list,removeFromCart,getTotalAmount}=useContext(StoreContext)
+  const {cartItems,foodList,removeFromCart,getTotalAmount}=useContext(StoreContext)
   return (
     !cartItems?null:(
     <div className="cart">
@@ -16,14 +16,14 @@ const Cart = () => {
           <p>Price</p>
           <p>Quantity</p>
           <p>Total</p>
-          <p>Remoce</p>
+          <p>Remove</p>
         </div>
         <br />
         <hr />
-        {food_list.map((item,index)=>{
+        {foodList.map((item,index)=>{
           if(cartItems[item._id]>0){
             return(
-              <div>
+              <div key={index}>
                     <div className="cart-items-title cart-items-item">
             
             <img src={item.image} alt="" />

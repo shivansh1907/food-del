@@ -27,4 +27,7 @@ app.use("/api/user",userRouter)
 import {cartRouter} from "./routes/cartRoute.js";
 app.use("/api/cart",cartRouter);
 
+import {orderRouter} from "./routes/order.route.js";
+app.use("/api/order",orderRouter);
+
 export{app}
