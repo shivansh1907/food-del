@@ -24,4 +24,7 @@ import {userRouter} from "./routes/userRoute.js";
 
 app.use("/api/user",userRouter)
 
+import {cartRouter} from "./routes/cartRoute.js";
+app.use("/api/cart",cartRouter);
+
 export{app}

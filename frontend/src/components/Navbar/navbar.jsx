@@ -1,4 +1,5 @@
-import React ,{useState} from 'react'
+import React ,{useState,useContext} from 'react'
+import { StoreContext } from '../../context/StoreContext'
 import "./navbar.css"
 import { assets } from '../../assets/assets'
 import {Link} from "react-router-dom"
@@ -6,16 +7,26 @@ import {Link} from "react-router-dom"
 
 
 const Navbar = ({setshowLogin}) => {
+    const {setToken,token}=useContext(StoreContext)
+    const [profile,setProfile]=useState(false)
+    
 
     const [menu,setmenu]=useState("menu")
     const handleClick=(e)=>{
         setmenu(e.currentTarget.innerText)
+    }
+    const handleProfile=()=>{
+        setProfile(!profile)
     }
 
     const handleSign=()=>{
         setshowLogin(true)
 
 
+    }
+    const logout=()=>{
+        localStorage.removeItem("token")
+        setToken("")        
     }
   return (
     <div className="navbar">
@@ -37,7 +48,17 @@ const Navbar = ({setshowLogin}) => {
                 </Link>
                 <div className="dot"></div>
             </div>
+            {!token?
             <button onClick={handleSign}>Sign in</button>
+            :<div className="navbar-user">
+                <img src={assets.profile_icon} alt="" onClick={handleProfile}/>
+               { profile?<ul className="profile-options">
+                    <li><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+                    <hr />
+                    <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>logout</p></li>
+                </ul>:null}
+                </div>}
+        
         </div>
 
       
