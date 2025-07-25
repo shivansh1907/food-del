@@ -47,7 +47,7 @@ const removeFromCart = async (req, res) => {
         
     }
     
-}
+} 
 //fetch user cart data
 const fetchCartData = async (req, res) => {
     try {
