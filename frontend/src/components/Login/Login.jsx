@@ -7,7 +7,7 @@ import axios from "axios"
 
 
 const Login = ({showLogin,setshowLogin}) => {
-  const url="http://localhost:5000"
+  const url="https://food-del-backend-1oh9.onrender.com"
   const {setToken}=useContext(StoreContext)
 
   const [currState,setcurrState]=useState("sign up")
