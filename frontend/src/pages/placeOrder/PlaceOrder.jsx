@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { use } from 'react'
 import axios from "axios"
 const PlaceOrder = ( ) => {
-  const url="http://localhost:5000"
+  const url="https://food-del-backend-1oh9.onrender.com"
   const {getTotalAmount,token,foodList,cartItems}=useContext(StoreContext)
   const [data,setData]= useState({
     firstName:"",
