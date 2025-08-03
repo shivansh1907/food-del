@@ -20,7 +20,7 @@ const StoreContextProvider=(props)=>{
             setcartItems((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         }
         if(token){
-            await axios.post("http://localhost:5000/api/cart/add",{itemId},{headers:{token}})
+            await axios.post("https://food-del-backend-1oh9.onrender.com/api/cart/add",{itemId},{headers:{token}})
 
         }
 
@@ -29,13 +29,13 @@ const StoreContextProvider=(props)=>{
     const removeFromCart=async(itemId)=>{
         setcartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
         if(token){
-            await axios.post("http://localhost:5000/api/cart/remove",{itemId},{headers:{token}})
+            await axios.post("https://food-del-backend-1oh9.onrender.com/api/cart/remove",{itemId},{headers:{token}})
         }
 
     }
 
     const loadCartData=async(token)=>{
-        const response=await axios.get("http://localhost:5000/api/cart/fetch",{},{headers:{token}})
+        const response=await axios.get("https://food-del-backend-1oh9.onrender.com/api/cart/fetch",{},{headers:{token}})
         setcartItems(response.data.data);
 
     }
